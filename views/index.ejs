@@ -1,0 +1,87 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="header">
+		<ul>
+			<li class="header-item"><a href="/">Home</a></li>
+			<li class="header-item" style="margin-left: 20px;"><a href="#" data-toggle="modal" data-target="#myModal">PreSale</a></li>
+		</ul>
+	</div>
+<div class="container-fluid" style="background: #21252b;">
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-sm-7">
+	<div style="display:table; margin: 0 auto; width: 50%;">
+		<h1 style="color: #ffe063; margin-top: 40%;">BitJan</h1>
+		<b>Deflationary, No Transaction Fee Cryptocurrency</b>
+		<p style="color: #ffffff80;">BitJan is a distributed ledger Cryptocurrency. It is Deflationary and has no transaction fee. BitJan network doesn't have miners or validators. Instead every node verifies the incoming transactions. This means %51 or other similar attacks can't hurt the network.</p>
+	</div></div>
+    <div class="col-sm-5"><img src="img/homepage-computers.webp" style="width: 50%;" /></div>
+  </div>
+  <div class="row" style="padding: 100px 20%;">
+	<div class="col-sm-4">
+		<center>
+			<img src="img/homepage-transaction.png" style="width: 80%;" /><br/>
+			<b>No Transaction Fee</b>
+			<p>BitJan has no transaction fee, it targets fast, secure and free financial system.</p>
+		</center>
+	</div>
+	<div class="col-sm-4">
+		<center>
+			<img src="img/homepage-security.webp" style="width: 80%;" /><br/>
+			<b>Fast and Secure</b>
+			<p>Every transaction happens instantly. BitJan's consensus mechanism is neither Proof of Work nor Proof of Stake. Instead every node verifies all the transactions. This prevents %51 and other attacks.</p>
+		</center>
+	</div>
+	<div class="col-sm-4">
+		<center>
+			<img src="img/homepage-def.png" style="width: 100%;" /><br/>
+			<b>Deflationary</b>
+			<p>BitJan is deflationary and supply keeps decreasing. This increases price over time.</p>
+		</center>
+	</div>
+  </div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<button class="btn btn-success" onclick="switchpanel('loginwallet');">Login</button>
+			<button class="btn btn-success" onclick="switchpanel('createwallet');">Create</button>
+        </div>
+        <div class="modal-body">
+			<div id="loginwallet" class="switchpanel">
+				<input type="text" style="width:100%;">
+				<button class="btn btn-success" onclick="login();">Login</button>
+			</div>
+			<div id="createwallet" class="switchpanel" style="display:none;">
+				<p>Important: This is your private key and you must save it somewhere safe. If you lose it, you can't access to your coins!</p>
+				<input type="text" readonly style="width:100%;" value="<%- privkey %>" id="privtxt">
+			</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+function switchpanel(t){
+	$(".switchpanel").hide();
+	$("#"+t).show();
+}
+function login(){
+	document.cookie = "privkey="+$("#privtxt").val()+";";
+	window.location.href = "/wallet";
+}
+</script>
+</body>
+</html>

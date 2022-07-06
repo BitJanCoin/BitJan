@@ -1,0 +1,37 @@
+body{
+	background: #21252b;
+	margin: 0;
+	color: white;
+}
+@font-face {
+  font-family: Flama;
+  src: url('Flama.otf');
+}
+.header{
+	background: #1d2126;
+	padding: 25px;
+	color: #ffffff80;
+	text-decoration: none;
+	font-weight: 600;
+	font-family: Flama;
+}
+.header ul{
+	margin: 0;
+}
+.header li{
+	list-style: none;
+	display: inline-block;
+}
+.header-item{
+	cursor: pointer;
+}
+.header-item a{
+	text-decoration: none;
+	color: #ffffff80;
+}
+.header-item a:hover{
+	color: white;
+}
+.modal-content{
+	color: black;
+}

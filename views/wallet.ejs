@@ -1,0 +1,61 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="header">
+		<ul>
+			<li class="header-item"><a href="/">Home</a></li>
+		</ul>
+	</div>
+<div class="container-fluid" style="background: #21252b;">
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-sm-7">
+	<div style="display:table; margin: 0 auto; width: 50%;">
+		<h1 style="color: #ffe063; margin-top: 40%;">Wallet Address</h1>
+		<b><%- pubkey %></b>
+		<p style="color: #ffffff80;">BitJan is a distributed ledger Cryptocurrency. It is Deflationary and has no transaction fee. BitJan network doesn't have miners or validators. Instead every node verifies the incoming transactions. This means %51 or other similar attacks can't hurt the network.</p>
+	</div></div>
+    <div class="col-sm-5"><img src="img/homepage-computers.webp" style="width: 50%;" /></div>
+  </div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<button class="btn btn-success" onclick="switchpanel('loginwallet');">Login</button>
+			<button class="btn btn-success" onclick="switchpanel('createwallet');">Create</button>
+        </div>
+        <div class="modal-body">
+			<div id="loginwallet" class="switchpanel">
+				<input type="text" style="width:100%;">
+				<button class="btn btn-success" onclick="login();">Login</button>
+			</div>
+			<div id="createwallet" class="switchpanel" style="display:none;">
+				<p>Important: This is your private key and you must save it somewhere safe. If you lose it, you can't access to your coins!</p>
+			</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+function switchpanel(t){
+	$(".switchpanel").hide();
+	$("#"+t).show();
+}
+function login(){
+	document.cookie = "priv="+$("#privtxt").val()+";";
+}
+</script>
+</body>
+</html>
